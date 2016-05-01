@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_GLOBAL_CONNECTION', 'global'),
 
     /*
     |--------------------------------------------------------------------------
@@ -66,13 +66,25 @@ return [
             'engine' => null,
         ],
 
-        'pgsql_global' => [
+        'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('GLOBAL_DB_HOST', 'localhost'),
-            'port' => env('GLOBAL_DB_PORT', '5432'),
-            'database' => env('GLOBAL_DB_DATABASE', 'forge'),
-            'username' => env('GLOBAL_DB_USERNAME', 'forge'),
-            'password' => env('GLOBAL_DB_PASSWORD', ''),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'test'),
+            'username' => env('DB_USERNAME', 'test'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+        ],
+
+        'global' => [
+            'driver' => 'pgsql',
+            'host' => env('DB_GLOBAL_HOST', '127.0.0.1'),
+            'port' => env('DB_GLOBAL_PORT', '5432'),
+            'database' => env('DB_GLOBAL_DATABASE', 'global'),
+            'username' => env('DB_GLOBAL_USERNAME', 'global'),
+            'password' => env('DB_GLOBAL_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
